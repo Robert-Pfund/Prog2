@@ -10,6 +10,8 @@ import demo009.model.Warenart;
 
 public class ApplicationContext {
 	
+	private String pfad = "D:\\demo009.spielstand\\";
+	
 	// alle Niederlassungen, ueber die der Spieler verfuegen kann 
 	private ArrayList<Niederlassung> niederlassungen = new ArrayList<Niederlassung>();
 	
@@ -41,6 +43,17 @@ public class ApplicationContext {
 		preistabelle.put(Warenart.TUCH, 18);
 		preistabelle.put(Warenart.GOLD, 20);
 	}
+	
+	public String getPfad() {
+		
+		return this.pfad;
+	}
+	
+	public void setPfad(String new_pfad) {
+		
+		this.pfad = new_pfad;
+	}
+	
 	
 	// erhoehen des Guthabens
 	public void guthabenPlus(int summand) {

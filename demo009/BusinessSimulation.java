@@ -3,6 +3,7 @@ package demo009;
 import demo009.menu.Menu;
 import demo009.menu.Submenu;
 import demo009.menu.impl.CommandAnfordern;
+import demo009.menu.impl.CommandDatenSpeichern;
 import demo009.menu.impl.CommandEinstellen;
 import demo009.menu.impl.CommandEntlassen;
 import demo009.menu.impl.CommandFuhrwerkKaufen;
@@ -76,7 +77,7 @@ public class BusinessSimulation {
 	private void initStartzustand() {
 		// Niederlassungen als Startkapital anlegen
 		appContext.addNiederlassung(new Niederlassung("Einbeck", 2, Warenart.BIER, 1));
-		appContext.addNiederlassung(new Niederlassung("Hamburg", 3, Warenart.BIER, 1));
+		appContext.addNiederlassung(new Niederlassung("Hamburg", 3, Warenart.KORN, 1));
 		
 		// es gibt ein zentrales Lager in Augsburg
 		appContext.setLager(new Lager("Augsburg", 1));
@@ -102,6 +103,10 @@ public class BusinessSimulation {
 		subFuhrpark.setCommand(new CommandFuhrwerkVerkaufen());
 		// TODO CommandFuhrwerkeReparieren
 		
+		// Untermenu für Speichern/Verwalten der Daten
+		Submenu subSpeichern = new Submenu("Spielstand speichern", appContext, "Zurück");
+		subSpeichern.setCommand(new CommandDatenSpeichern());
+		
 		// Hauptmenu
 		Menu mainMenu = new Menu("Hauptmenu", appContext, "Runde beenden");
 		mainMenu.setCommand(new CommandVerkaufen());
@@ -110,6 +115,8 @@ public class BusinessSimulation {
 		mainMenu.setCommand(new CommandPrintNiederlassungen());
 		mainMenu.setCommand(new CommandPrintLager());
 		mainMenu.setCommand(new CommandPrintGuthaben());
+		
+		mainMenu.setCommand(subSpeichern);
 		
 		return mainMenu;
 	}
