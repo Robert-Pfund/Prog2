@@ -36,8 +36,8 @@ public class Niederlassung extends Standort {
 	 * @param warenart	die Warenart, welche in der Niederlassung produziert werden soll
 	 * @param arbeitende	die Anzahl der Arbeiter, die bei Beginn in dieser Niederlassung angestellt sind
 	 */
-	public Niederlassung(String ort, Warenart warenart, int arbeitende) {
-		super(ort);
+	public Niederlassung(String ort, int lohn, Warenart warenart, int arbeitende) {
+		super(ort, lohn);
 		this.warenartProduktion=warenart;
 		this.arbeitende=arbeitende;
 	}

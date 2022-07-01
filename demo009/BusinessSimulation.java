@@ -4,7 +4,11 @@ import demo009.menu.Menu;
 import demo009.menu.Submenu;
 import demo009.menu.impl.CommandAnfordern;
 import demo009.menu.impl.CommandEinstellen;
+import demo009.menu.impl.CommandEntlassen;
+import demo009.menu.impl.CommandFuhrwerkKaufen;
+import demo009.menu.impl.CommandFuhrwerkVerkaufen;
 import demo009.menu.impl.CommandLoehneFestlegen;
+import demo009.menu.impl.CommandPrintGuthaben;
 import demo009.menu.impl.CommandPrintLager;
 import demo009.menu.impl.CommandPrintNiederlassungen;
 import demo009.menu.impl.CommandVerkaufen;
@@ -38,11 +42,13 @@ public class BusinessSimulation {
 			System.out.println("=====================================");
 			System.out.println("========== Runde "+runde+" ==========");
 			
-			System.out.println("========== TODO: Aktuellen Spielstand ausgeben");
 			//DisplayService.anzeigenNiederlassungen(appContext);
 			// TODO Aktuellen Bestand im Lager ausgeben
+			DisplayService.anzeigenLager(appContext);
 			// TODO aktuelle Liste der Niederlassungen ausgeben
+			DisplayService.anzeigenNiederlassungen(appContext);
 			// TODO Guthaben ausgeben
+			DisplayService.anzeigenGuthaben(appContext);
 			
 			// mit Hilfe des Menus kann der Spieler seine Ressourcen verwalten
 			mainMenu.showMenu();
@@ -69,11 +75,11 @@ public class BusinessSimulation {
 	
 	private void initStartzustand() {
 		// Niederlassungen als Startkapital anlegen
-		appContext.addNiederlassung(new Niederlassung("Einbeck", Warenart.BIER, 1));
-		appContext.addNiederlassung(new Niederlassung("Hamburg", Warenart.BIER, 1));
+		appContext.addNiederlassung(new Niederlassung("Einbeck", 2, Warenart.BIER, 1));
+		appContext.addNiederlassung(new Niederlassung("Hamburg", 3, Warenart.BIER, 1));
 		
 		// es gibt ein zentrales Lager in Augsburg
-		appContext.setLager(new Lager("Augsburg"));
+		appContext.setLager(new Lager("Augsburg", 1));
 		
 		// Fuhrpark ist anfangs mit einem Fuhrwerk bestueckt und Preis pro
 		// Fuhrwerk ist 20 Taler
@@ -87,12 +93,13 @@ public class BusinessSimulation {
 		Submenu subNiederlassung = new Submenu("Niederlassungen, Anforderungen verwalten", appContext, "Zurück");
 		subNiederlassung.setCommand(new CommandAnfordern());
 		subNiederlassung.setCommand(new CommandEinstellen());
+		subNiederlassung.setCommand(new CommandEntlassen());
 		subNiederlassung.setCommand(new CommandLoehneFestlegen());
 		
 		// Untermenu für die Verwaltung der Fuhrwerke
 		Submenu subFuhrpark = new Submenu("Fuhrpark verwalten", appContext, "Zurück");
-		// TODO CommandFuhrwerkKaufen
-		// TODO CommandFuhrwerkVerkaufen
+		subFuhrpark.setCommand(new CommandFuhrwerkKaufen());
+		subFuhrpark.setCommand(new CommandFuhrwerkVerkaufen());
 		// TODO CommandFuhrwerkeReparieren
 		
 		// Hauptmenu
@@ -102,6 +109,7 @@ public class BusinessSimulation {
 		mainMenu.setCommand(subFuhrpark);
 		mainMenu.setCommand(new CommandPrintNiederlassungen());
 		mainMenu.setCommand(new CommandPrintLager());
+		mainMenu.setCommand(new CommandPrintGuthaben());
 		
 		return mainMenu;
 	}

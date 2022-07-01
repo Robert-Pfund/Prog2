@@ -7,9 +7,11 @@ public class Standort {
 	 * Der Ort kann beliebig gewählt werden und dient lediglich der Illustration im Spiel. 
 	 */
 	private String ort;
+	private int lohn;
 	
-	public Standort(String ort) {
+	public Standort(String ort, int lohn) {
 		this.ort=ort;
+		this.lohn = lohn;
 	}
 
 	/**
@@ -17,7 +19,17 @@ public class Standort {
 	 * @return Ort, in dem der Standort steht.
 	 */
 	public String getOrt() {
-		return ort;
+		return this.ort;
+	}
+	
+	public int getLohn() {
+		
+		return this.lohn;
+	}
+	
+	public void setLohn(int lohn_value) {
+		
+		this.lohn = lohn_value;
 	}
 
 }

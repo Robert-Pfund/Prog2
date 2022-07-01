@@ -19,6 +19,11 @@ public class Fuhrpark {
 		this.anzahlFuhrwerke = anzahlFuhrwerke;
 	}
 	
+	public void addFuhrwerke(int neueFuhrwerke) {
+		
+		this.anzahlFuhrwerke = this.anzahlFuhrwerke + neueFuhrwerke;
+	}
+	
 	public int getPreisFuhrwerk() {
 		return preisFuhrwerk;
 	}

@@ -18,8 +18,8 @@ public class Lager extends Standort {
 	 * Konstruktor
 	 * @param ort 	Ort, in dem sich das Lager befinden soll
 	 */
-	public Lager(String ort) {
-		super(ort);
+	public Lager(String ort, int lohn) {
+		super(ort, lohn);
 	}
 	
 	/**
