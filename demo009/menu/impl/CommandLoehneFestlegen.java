@@ -11,7 +11,7 @@ public class CommandLoehneFestlegen implements Command {
 
 	@Override
 	public String menuItemName() {
-		return "Löhne festlegen";
+		return "Lï¿½hne festlegen";
 	}
 
 	@Override
@@ -25,16 +25,28 @@ public class CommandLoehneFestlegen implements Command {
 			
 			Niederlassung nl = context.getNiederlassungen().get(i);
 			System.out.println(nl.getOrt() + " : " + nl.getLohn());
+			
+			System.out.println("Soll der Lohn angepasst werden? (y/n)");
+			String newuserInput1 = myScanner.nextLine();
+
+			if(newuserInput1.equals("y")) {
 				
-			String newuserInput = myScanner.nextLine();
-			nl.setLohn(Integer.parseInt(newuserInput));
+				String newuserInput2 = myScanner.nextLine();
+				nl.setLohn(Integer.parseInt(newuserInput2));
+			}		
 		}
 		
 		Lager l = context.getLager();
 		System.out.println(l.getOrt() + " : " + l.getLohn());
 		
-		String newuserInput = myScanner.nextLine();
-		l.setLohn(Integer.parseInt(newuserInput));
+		System.out.println("Soll die Lohn angepasst werden? (y/n)");
+		String newuserInput1 = myScanner.nextLine();
+		
+		if(newuserInput1.equals("y")) {
+			String newuserInput = myScanner.nextLine();
+			l.setLohn(Integer.parseInt(newuserInput));
+		}
+		
 		
 	}
 }

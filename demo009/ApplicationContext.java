@@ -10,7 +10,7 @@ import demo009.model.Warenart;
 
 public class ApplicationContext {
 	
-	private String pfad = "D:\\demo009.spielstand\\";
+	private String pfad = "C:\\Users\\Robbi\\Desktop\\java_prog2_apl2\\";
 	
 	// alle Niederlassungen, ueber die der Spieler verfuegen kann 
 	private ArrayList<Niederlassung> niederlassungen = new ArrayList<Niederlassung>();

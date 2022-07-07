@@ -34,7 +34,7 @@ public class CommandDatenSpeichern implements Command {
 		
 		FileWriter fw = null;
 
-		
+		// Speichern der Niederlassungen
 		try {
 			// nur zum Schreiben oeffen, vorherige Daten gehen verloren
 			fw = new FileWriter(niederlassungen);
@@ -54,8 +54,9 @@ public class CommandDatenSpeichern implements Command {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//-------------------------------
 		
+		//-------------------------------
+		// Speichern des Lagers
 		try {
 			// nur zum Schreiben oeffen, vorherige Daten gehen verloren
 			fw = new FileWriter(lager);
@@ -80,6 +81,8 @@ public class CommandDatenSpeichern implements Command {
 			e.printStackTrace();
 		}
 		
+		//-------------------------------
+		// Speichern des Guthabens
 		try {
 			// nur zum Schreiben oeffen, vorherige Daten gehen verloren
 			fw = new FileWriter(guthaben);
@@ -96,6 +99,8 @@ public class CommandDatenSpeichern implements Command {
 			e.printStackTrace();
 		}
 		
+		//-------------------------------
+		// Speichern des Fuhrparks
 		try {
 			// nur zum Schreiben oeffen, vorherige Daten gehen verloren
 			fw = new FileWriter(fuhrpark);

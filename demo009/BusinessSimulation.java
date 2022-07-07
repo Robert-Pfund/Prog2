@@ -21,7 +21,7 @@ import demo009.model.Warenart;
 
 public class BusinessSimulation {
 
-	// ApplicationContext enthaelt alle Objekte, die für den Spielstand des
+	// ApplicationContext enthaelt alle Objekte, die fï¿½r den Spielstand des
 	// aktuellen Spiels relevant sind. Auch technische Aspekte des Spiels
 	// koennen darin enthalten sein.
 	ApplicationContext appContext;
@@ -55,7 +55,7 @@ public class BusinessSimulation {
 			mainMenu.showMenu();
 			
 			// Produktion durchfuehren
-			// produzierte Menge vor dem nächsten Rundenbeginn bei allen Niederlassungen abholen und einlagern
+			// produzierte Menge vor dem nï¿½chsten Rundenbeginn bei allen Niederlassungen abholen und einlagern
 			int produzierteMenge;
 			Warenart produzierteWarenart;
 			System.out.println("========== Produzierte Mengen");
@@ -90,21 +90,21 @@ public class BusinessSimulation {
 	
 	private Menu initMainMenu() {
 		
-		// Untermenu für die Verwaltung der Niederlassungen und Transporte
-		Submenu subNiederlassung = new Submenu("Niederlassungen, Anforderungen verwalten", appContext, "Zurück");
+		// Untermenu fï¿½r die Verwaltung der Niederlassungen und Transporte
+		Submenu subNiederlassung = new Submenu("Niederlassungen, Anforderungen verwalten", appContext, "Zurï¿½ck");
 		subNiederlassung.setCommand(new CommandAnfordern());
 		subNiederlassung.setCommand(new CommandEinstellen());
 		subNiederlassung.setCommand(new CommandEntlassen());
 		subNiederlassung.setCommand(new CommandLoehneFestlegen());
 		
-		// Untermenu für die Verwaltung der Fuhrwerke
-		Submenu subFuhrpark = new Submenu("Fuhrpark verwalten", appContext, "Zurück");
+		// Untermenu fï¿½r die Verwaltung der Fuhrwerke
+		Submenu subFuhrpark = new Submenu("Fuhrpark verwalten", appContext, "Zurï¿½ck");
 		subFuhrpark.setCommand(new CommandFuhrwerkKaufen());
 		subFuhrpark.setCommand(new CommandFuhrwerkVerkaufen());
 		// TODO CommandFuhrwerkeReparieren
 		
-		// Untermenu für Speichern/Verwalten der Daten
-		Submenu subSpeichern = new Submenu("Spielstand speichern", appContext, "Zurück");
+		// Untermenu fï¿½r Speichern/Verwalten der Daten
+		Submenu subSpeichern = new Submenu("Spielstand speichern", appContext, "Zurï¿½ck");
 		subSpeichern.setCommand(new CommandDatenSpeichern());
 		
 		// Hauptmenu
@@ -115,8 +115,8 @@ public class BusinessSimulation {
 		mainMenu.setCommand(new CommandPrintNiederlassungen());
 		mainMenu.setCommand(new CommandPrintLager());
 		mainMenu.setCommand(new CommandPrintGuthaben());
-		
 		mainMenu.setCommand(subSpeichern);
+		
 		
 		return mainMenu;
 	}
